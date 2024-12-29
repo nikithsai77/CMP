@@ -10,8 +10,8 @@ class MyApplication: Application() {
         super.onCreate()
         initKoin {
             //This is used to add context to koin container
-            //where ever context is req then koin will bind this app context there.
-            //if we didn't pass the app context then if will store the passed context in singleton.
+            //where ever context is req then koin will bind this app context on there.
+            //if we didn't pass the app context then it will store the passed context in a singleton.
             androidContext(this@MyApplication)
         }
     }
