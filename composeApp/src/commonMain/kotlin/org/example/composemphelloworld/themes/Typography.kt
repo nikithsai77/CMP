@@ -7,6 +7,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import org.jetbrains.compose.resources.Font
+import kmp.composeapp.generated.resources.*
 
 val SpaceGroTest @Composable get() = FontFamily(
     Font(resource = Res.font.space_grotesk_bold, weight = FontWeight.Bold)
