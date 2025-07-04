@@ -56,6 +56,8 @@ kotlin {
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.lifecycle.viewmodel)
             implementation(libs.navigation.compose)
+            //Material Theme 3
+            implementation(compose.material3)
             //Networking Call
             implementation(libs.bundles.ktor)
 

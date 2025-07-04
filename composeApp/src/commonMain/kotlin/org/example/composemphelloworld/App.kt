@@ -14,11 +14,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,14 +35,12 @@ import kmp.composeapp.generated.resources.Res
 import kmp.composeapp.generated.resources.compose_multiplatform123
 import kmp.composeapp.generated.resources.sample
 import kotlinx.coroutines.launch
-import org.example.composemphelloworld.battery.BatteryComposable
 import org.example.composemphelloworld.battery.BatteryManager
-import org.example.composemphelloworld.dataStore.DataStore
-import org.example.composemphelloworld.dateTime.DateAndTimeComposable
 import org.example.composemphelloworld.dependencies.MyViewModel
 import org.example.composemphelloworld.networking.InitiateHttpClient
 import org.example.composemphelloworld.networking.util.onError
 import org.example.composemphelloworld.networking.util.onSuccess
+import org.example.composemphelloworld.themes.AppTheme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -52,8 +50,8 @@ import org.koin.core.annotation.KoinExperimentalAPI
 @Composable
 @Preview
 fun App(batteryManager: BatteryManager, httpClient: InitiateHttpClient, dataStore: DataStore<Preferences>) {
-    MaterialTheme {
-       Scaffold(topBar = { topAppBar() }) {
+    AppTheme {
+        Scaffold(topBar = { TopAppBar() }) {
            val viewModel = koinViewModel<MyViewModel>()
            var finalText by remember {
                mutableStateOf(value = "")
@@ -85,6 +83,7 @@ fun App(batteryManager: BatteryManager, httpClient: InitiateHttpClient, dataStor
                        Text(text = "Enter Your Data Here...")
                    }, modifier = Modifier.padding(horizontal = 16.dp).fillMaxWidth())
                    if (finalText.isNotBlank()) Text(text = finalText)
+
                    Button(onClick = {
                        scope.launch {
                            httpClient.getData(enterText)
@@ -105,8 +104,8 @@ fun App(batteryManager: BatteryManager, httpClient: InitiateHttpClient, dataStor
 }
 
 @Composable
-fun topAppBar() {
-    Row(modifier = Modifier.fillMaxWidth().wrapContentHeight().background(MaterialTheme.colors.onPrimary).padding(16.dp)) {
-        Text(text = "KMP", color = MaterialTheme.colors.primary, fontSize = 18.sp)
+fun TopAppBar() {
+    Row(modifier = Modifier.fillMaxWidth().wrapContentHeight().background(color = MaterialTheme.colorScheme.onPrimary).padding(all = 16.dp)) {
+        Text(text = "KMP", color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyLarge)
     }
 }
