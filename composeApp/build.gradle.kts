@@ -70,6 +70,11 @@ kotlin {
 
             api(libs.datastore)
             api(libs.datastore.preferences)
+
+            //decompose
+            implementation(libs.decompose)
+            implementation(libs.decompose.jetbrains)
+            implementation(libs.kotlinx.serialization.json)
         }
         nativeMain.dependencies {
             //Networking Call

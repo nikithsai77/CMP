@@ -27,6 +27,9 @@ core-splashscreen = "1.0.1"
 ktor = "2.3.12"
 datetime = "0.6.0"
 datastore = "1.1.1"
+decompose = "2.2.0-alpha03"
+kotlinxSerializationJson = "1.7.3"
+extensionsComposeJetbrains = "2.1.4-compose-experimental"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -75,6 +78,11 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 #Data Store Preference
 datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
 datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+
+#Decompose
+decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+decompose-jetbrains = { module = "com.arkivanov.decompose:extensions-compose-jetbrains", version.ref = "extensionsComposeJetbrains" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
